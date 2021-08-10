@@ -10,5 +10,32 @@
 		<property name="salary" value="1234"></property>
 		<property name="permanent" value="true"></property>
 		<property name="dateOfBirth" value="8/10/2021"></property>
+		<property name="department" ref="departmentBean" />
+		<property name="skills">
+			<array>
+				<ref bean="skillHtml" />
+				<ref bean="skillCss" />
+				<ref bean="skillJs" />
+			</array>
+		</property>
+
 	</bean>
+	<bean id="departmentBean"
+	class="com.fis.springlearn.bean.Department">
+	<property name="id" value="1" />
+	<property name="name" value="Payroll" />
+</bean>
+	<bean id="skillHtml" class="com.fis.springlearn.bean.Skill">
+		<property name="id" value="100" />
+		<property name="name" value="html" />
+	</bean>
+	<bean id="skillCss" class="com.fis.springlearn.bean.Skill">
+		<property name="id" value="200" />
+		<property name="name" value="css" />
+	</bean>
+	<bean id="skillJs" class="com.fis.springlearn.bean.Skill">
+		<property name="id" value="300" />
+		<property name="name" value="js" />
+	</bean>
+
 </beans>
