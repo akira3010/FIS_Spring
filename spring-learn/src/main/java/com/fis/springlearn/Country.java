@@ -30,10 +30,10 @@ public class Country {
 		this.name = name;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Country [code=" + code + ", name=" + name + "]";
 	}
-	
+	*/
 
 }

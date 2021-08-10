@@ -19,15 +19,18 @@ public class SpringLearnApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringLearnApplication.class, args);
-		displayDate();
+		//SpringApplication.run(SpringLearnApplication.class, args);
+		//displayDate();
 		displayCountry();
 	}
 	
 	static void displayCountry() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
 		Country country = context.getBean("country", Country.class);
-		LOGGER.debug("Country : {}", country.toString());
+		Country anotherCountry = context.getBean("country", Country.class);
+		LOGGER.debug("Country : {}", country);
+		LOGGER.debug("Country : {}", anotherCountry);
+		
 
 	}
 	static void displayDate()  {
