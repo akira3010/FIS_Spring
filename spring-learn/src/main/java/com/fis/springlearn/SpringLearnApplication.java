@@ -9,20 +9,44 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
+import com.fis.springlearn.bean.controller.EmployeeController;
 
 @SpringBootApplication
 public class SpringLearnApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
+
+	static ApplicationContext applicationContext;
 
 	public static void main(String[] args) {
 //		SpringApplication.run(SpringLearnApplication.class, args);
 //		displayDate();
 //		displayCountry();
 //		displayCountries();
-		displayEmployee();
+//		displayEmployee();
+		// getEmployeeController();
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(EmployeeController.class);
+		displayEmployeeControllerAnnotation(applicationContext);
+	}
+
+	public static void displayEmployeeControllerAnnotation(ApplicationContext applicationContext) {
+		LOGGER.info("START");
+		EmployeeController employeeController = applicationContext.getBean("employeeController",
+				EmployeeController.class);
+		LOGGER.debug("EmployeeController : {}", employeeController);
+		LOGGER.info("END");
+
+	}
+
+	static void getEmployeeController() {
+		LOGGER.info("START");
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		EmployeeController employeeController = context.getBean("controller", EmployeeController.class);
+		LOGGER.debug("EmployeeController : {}", employeeController);
+		LOGGER.info("END");
 	}
 
 	static void displayEmployee() {

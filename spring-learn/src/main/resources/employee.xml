@@ -21,10 +21,10 @@
 
 	</bean>
 	<bean id="departmentBean"
-	class="com.fis.springlearn.bean.Department">
-	<property name="id" value="1" />
-	<property name="name" value="Payroll" />
-</bean>
+		class="com.fis.springlearn.bean.Department">
+		<property name="id" value="1" />
+		<property name="name" value="Payroll" />
+	</bean>
 	<bean id="skillHtml" class="com.fis.springlearn.bean.Skill">
 		<property name="id" value="100" />
 		<property name="name" value="html" />
@@ -38,4 +38,15 @@
 		<property name="name" value="js" />
 	</bean>
 
+	<bean id="dao" class="com.fis.springlearn.bean.dao.EmployeeDao">
+
+	</bean>
+	<bean id="service"
+		class="com.fis.springlearn.bean.service.EmployeeService">
+		<property name="employeeDao" ref="dao"></property>
+	</bean>
+	<bean id="controller"
+		class="com.fis.springlearn.bean.controller.EmployeeController">
+		<property name="employeeService" ref="service"></property>
+	</bean>
 </beans>
