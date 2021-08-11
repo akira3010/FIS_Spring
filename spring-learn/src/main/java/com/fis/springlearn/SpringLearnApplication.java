@@ -13,13 +13,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
-import com.fis.springlearn.bean.controller.EmployeeController;
+import com.fis.springlearn.controller.EmployeeController;
 
 @SpringBootApplication
 public class SpringLearnApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
-
-	static ApplicationContext applicationContext;
 
 	public static void main(String[] args) {
 //		SpringApplication.run(SpringLearnApplication.class, args);
@@ -27,9 +25,10 @@ public class SpringLearnApplication {
 //		displayCountry();
 //		displayCountries();
 //		displayEmployee();
-		// getEmployeeController();
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(EmployeeController.class);
-		displayEmployeeControllerAnnotation(applicationContext);
+		getEmployeeController();
+
+//		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(EmployeeController.class);
+//		displayEmployeeControllerAnnotation(applicationContext);
 	}
 
 	public static void displayEmployeeControllerAnnotation(ApplicationContext applicationContext) {
