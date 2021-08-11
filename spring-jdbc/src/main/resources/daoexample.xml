@@ -29,5 +29,10 @@
 		class="com.fis.springjdbc.product.ProductDAOImpl">
 		<property name="dataSource" ref="dataSourceHikari" />
 	</bean>
+	
+	<bean id="employeeDao"
+		class="com.fis.springjdbc.employee.EmployeeDAOImpl">
+		<property name="dataSource" ref="dataSourceHikari"/>
+	</bean>
 
 </beans>
